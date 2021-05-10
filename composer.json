@@ -4,7 +4,7 @@
     "description": "Real time Telegram logger. Allows you to see your project logs in a Telegram channel",
     "keywords": ["telegram","logger","realtime"],
     "homepage": "https://www.linkedin.com/in/mstislav-sergeev-a2852714a/",
-    "license": "free",
+    "license": "MIT",
     "version": "1.0.0",
     "authors": [
         {
