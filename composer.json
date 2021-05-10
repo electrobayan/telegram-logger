@@ -1,5 +1,13 @@
 {
+    "name": "electrobayan/telegram-logger",
+    "description": "Real time Telegram logger. Allows you to see your project logs in a Telegram channel",
+    "version": "0.0.2",
     "require": {
         "telegram-bot/api": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "TelegramLogger\\": "src/"
+        }
     }
 }
