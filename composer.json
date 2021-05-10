@@ -1,7 +1,19 @@
 {
     "name": "electrobayan/telegram-logger",
+    "type": "library",
     "description": "Real time Telegram logger. Allows you to see your project logs in a Telegram channel",
+    "keywords": ["telegram","logger","realtime"],
+    "homepage": "https://www.linkedin.com/in/mstislav-sergeev-a2852714a/",
+    "license": "free",
     "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Mstislav Sergeev",
+            "email": "m.n.sergeev@gmail.com",
+            "homepage": "https://www.linkedin.com/in/mstislav-sergeev-a2852714a/",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "telegram-bot/api": "^2.3"
     },
