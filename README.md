@@ -1,5 +1,5 @@
 # Telegram Logger
-[![Latest Version on Packagist](https://img.shields.io/badge/packagist-v1.0.0-green)](https://packagist.org/packages/electrobayan/telegram-logger)
+[![Latest Version on Packagist](https://img.shields.io/badge/packagist-v1.0.1-green)](https://packagist.org/packages/electrobayan/telegram-logger)
 <p>
 This extension allows you to see your project logs in real time using Telegram app.
 </p>
