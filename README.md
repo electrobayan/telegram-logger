@@ -1,10 +1,10 @@
-#Telegram Logger
+# Telegram Logger
 [![Latest Version on Packagist](https://img.shields.io/badge/packagist-v1.0.0-green)](https://packagist.org/packages/electrobayan/telegram-logger)
 <p>
 This extension allows you to see your project logs in real time using Telegram app.
 </p>
 
-##How To Install
+## How To Install
 <b>via Composer require command (composer 2 is required):</b>
 
 Just type into the CLI in your project root:
@@ -23,8 +23,8 @@ Then run in you CLI:
 composer install
 </pre>
 
-##How To Use
-###Quick example:
+## How To Use
+### Quick example:
 You will have to create a Telegram bot and a channel. Check the user guide <a href="https://core.telegram.org/bots">here</a>.
 Then just do the following:
 <pre>
