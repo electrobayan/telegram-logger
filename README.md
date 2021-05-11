@@ -4,6 +4,25 @@
 This extension allows you to see your project logs in real time using Telegram app.
 </p>
 
+##How To Install
+<b>via Composer require command (composer 2 is required):</b>
+
+Just type into the CLI in your project root:
+<pre>composer require electrobayan/telegram-logger</pre>
+
+<b>via updating composer.json:</b>
+<pre>
+{
+    "require": {
+        "electrobayan/telegram-logger": "^1.0"
+    }
+}
+</pre>
+Then run in you CLI:
+<pre>
+composer install
+</pre>
+
 ##How To Use
 ###Quick example:
 You will have to create a Telegram bot and a channel. Check the user guide <a href="https://core.telegram.org/bots">here</a>.
