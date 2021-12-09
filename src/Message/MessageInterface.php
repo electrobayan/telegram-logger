@@ -14,8 +14,8 @@ interface MessageInterface
      */
     public const NEW_LINE_DIVIDER = "\r\n";
     public const PARAMS_DIVIDER = ': ';
-    public const EXTRA_PARAMS_KEY = '<b>--- Extra parameters</b>';
-    public const TAGS_KEY = '<b>--- Tags</b>';
+    public const EXTRA_PARAMS_KEY = '<i>- Extra parameters</i>';
+    public const TAGS_KEY = '<i>- Tags</i>';
 
     /**
      * Icon showing in the message
