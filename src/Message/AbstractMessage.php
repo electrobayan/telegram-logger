@@ -13,7 +13,7 @@ abstract class AbstractMessage implements MessageInterface
      */
     protected function getLogTitle(): string
     {
-        return static::INFO_ICON . static::TITLE . static::INFO_ICON;
+        return static::INFO_ICON . static::TITLE;
     }
 
     /**
@@ -42,14 +42,21 @@ abstract class AbstractMessage implements MessageInterface
      */
     protected function prepareFrame(): string
     {
-        return
-            $this->getLogTitle() . self::NEW_LINE_DIVIDER . self::NEW_LINE_DIVIDER
-            . '%s' . self::NEW_LINE_DIVIDER . self::NEW_LINE_DIVIDER
-            . self::EXTRA_PARAMS_KEY . self::NEW_LINE_DIVIDER . self::NEW_LINE_DIVIDER
-            . '%s' . self::NEW_LINE_DIVIDER . self::NEW_LINE_DIVIDER
-            . self::TAGS_KEY . self::NEW_LINE_DIVIDER . self::NEW_LINE_DIVIDER
-            . $this->getLogTag() . self::NEW_LINE_DIVIDER . self::NEW_LINE_DIVIDER
-            . static::INFO_ICON;
+        $title = $this->getLogTitle();
+        $extraParamsKey = self::EXTRA_PARAMS_KEY;
+        $tagsKey = self::TAGS_KEY;
+        $tags = $this->getLogTag();
+
+        return <<<FRAME
+                $title
+                <pre>%s</pre>
+                
+                $extraParamsKey
+                <pre>%s</pre>
+                
+                $tagsKey
+                $tags
+                FRAME;
     }
 
     /**
