@@ -29,7 +29,7 @@ You will have to create a Telegram bot and a channel. Check the user guide <a hr
 Then just do the following:
 <pre>
 $infoLogger = new \TelegramLogger\Creator\InfoPoster('Telegram Key Goes here', '@your_telegram_channel_name');
-$infoLogger->post('test', ['key_1' => 'value_1', 'key_2' => 'value_2']);
+$infoLogger->post('test', ['key_1' => 'value_1', 'key_2' => 'value_2'], ['tag1', 'tag2']);
 </pre>
 
 ### Details
@@ -50,9 +50,10 @@ $infoLogger = new \TelegramLogger\Creator\InfoPoster('Telegram Key Goes here', '
 
 After the poster created all is left is just to call `post` method.
 <pre>
-$errorLogger->post('Error Message', ['key_1' => 'value_1', 'key_2' => 'value_2']);
-$warningLogger->post('Warning Message', ['key_1' => 'value_1', 'key_2' => 'value_2']);
-$infoLogger->post('Info Message', ['key_1' => 'value_1', 'key_2' => 'value_2']);
+$errorLogger->post('Error Message', ['key_1' => 'value_1', 'key_2' => 'value_2'], ['tag1', 'tag2']);
+$warningLogger->post('Warning Message', ['key_1' => 'value_1', 'key_2' => 'value_2'], ['tag1', 'tag2']);
+$infoLogger->post('Info Message', ['key_1' => 'value_1', 'key_2' => 'value_2'], ['tag1', 'tag2']);
 </pre>
 
 Also, you can pass <b>optional</b> extra params if needed as an array `key => value`. Both key and value will be posted into the channel.
+You can pass <b>optional</b> tags if needed as an array `key => value`. Only values will be posted into the channel.

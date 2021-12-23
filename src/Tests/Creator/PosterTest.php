@@ -20,9 +20,10 @@ class PosterTest extends TestCase
             'key_1' => 'value_1',
             'key_2' => 'value_2'
         ];
+        $testTags = ['tag1', 'tag2'];
 
         $infoPoster = new InfoPoster($testToken, $testChannelId);
-        $actualResult = $infoPoster->post($testText, $testParams);
+        $actualResult = $infoPoster->post($testText, $testParams, $testTags);
 
         $this->assertIsBool($actualResult);
     }

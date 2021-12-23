@@ -13,9 +13,11 @@ interface MessageInterface
      * @const string
      */
     public const NEW_LINE_DIVIDER = "\r\n";
-    public const PARAMS_DIVIDER = ': ';
-    public const EXTRA_PARAMS_KEY = '<i>- Extra parameters</i>';
+    public const DIVIDER = ' ';
+    public const PARAMS_DIVIDER = ':' . self::DIVIDER;
+    public const EXTRA_PARAMS_KEY = '<i>- Params</i>';
     public const TAGS_KEY = '<i>- Tags</i>';
+    public const TAG_PREFIX = '#';
 
     /**
      * Icon showing in the message
@@ -38,7 +40,8 @@ interface MessageInterface
     /**
      * @param string $text
      * @param array $params
+     * @param array $tags
      * @return string
      */
-    public function getFormattedPost(string $text, array $params = []): string;
+    public function getFormattedPost(string $text, array $params = [], array $tags = []): string;
 }
