@@ -20,7 +20,8 @@ interface PosterInterface
     /**
      * @param string $text
      * @param array $params
+     * @param array $tags
      * @return bool
      */
-    public function post(string $text, array $params = []): bool;
+    public function post(string $text, array $params = [], array $tags = []): bool;
 }

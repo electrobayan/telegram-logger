@@ -49,15 +49,16 @@ abstract class AbstractPoster implements PosterInterface
     /**
      * @param string $text
      * @param array $params
+     * @param array $tags
      * @return bool
      */
-    public function post(string $text, array $params = []): bool
+    public function post(string $text, array $params = [], array $tags = []): bool
     {
         $result = true;
 
         $formattedPost = $this
             ->getMessageObject()
-            ->getFormattedPost($text, $params);
+            ->getFormattedPost($text, $params, $tags);
 
         try {
             $this->telegramConnector->sendMessage($this->channelId, $formattedPost, self::HTML_TELEGRAM_MODE);

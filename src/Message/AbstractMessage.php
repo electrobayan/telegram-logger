@@ -27,36 +27,70 @@ abstract class AbstractMessage implements MessageInterface
     /**
      * @param string $text
      * @param array $params
+     * @param array $tags
      * @return string
      */
-    public function getFormattedPost(string $text, array $params = []): string
+    public function getFormattedPost(string $text, array $params = [], array $tags = []): string
     {
-        $postFrame = $this->prepareFrame();
+        $postFrame = $this->prepareFrame($params);
         $formattedParams = $this->prepareParams($params);
+        $formattedTags = $this->prepareTags($tags);
 
-        return sprintf($postFrame, $text, $formattedParams);
+        return sprintf($postFrame, $text, $formattedParams, $formattedTags);
+    }
+
+    /**
+     * @param array $params
+     * @return string
+     */
+    protected function prepareFrame(array $params): string
+    {
+        $titleBlock = $this->prepareTitleBlock();
+        $paramsBlock = $this->prepareParamsBlock($params);
+        $tagsBlock = $this->prepareTagsBlock();
+
+        return $titleBlock . $paramsBlock . $tagsBlock;
     }
 
     /**
      * @return string
      */
-    protected function prepareFrame(): string
+    protected function prepareTitleBlock(): string
     {
         $title = $this->getLogTitle();
-        $extraParamsKey = self::EXTRA_PARAMS_KEY;
+        return <<<TITLE
+                 $title
+                <pre>%s</pre>
+               TITLE;
+    }
+
+    /**
+     * @param array $params
+     * @return string
+     */
+    protected function prepareParamsBlock(array $params): string
+    {
+        $extraParamsKey = $params ? self::NEW_LINE_DIVIDER . self::EXTRA_PARAMS_KEY : '';
+        $extraParamsValue = $params ? '<pre>%s</pre>' . self::NEW_LINE_DIVIDER  : '';
+
+        return <<<PARAMS
+                $extraParamsKey
+                $extraParamsValue
+               PARAMS;
+    }
+
+    /**
+     * @return string
+     */
+    protected function prepareTagsBlock(): string
+    {
         $tagsKey = self::TAGS_KEY;
         $tags = $this->getLogTag();
 
-        return <<<FRAME
-                $title
-                <pre>%s</pre>
-                
-                $extraParamsKey
-                <pre>%s</pre>
-                
+        return <<<TAGS
                 $tagsKey
-                $tags
-                FRAME;
+                $tags %s
+               TAGS;
     }
 
     /**
@@ -71,6 +105,20 @@ abstract class AbstractMessage implements MessageInterface
             $result .= $paramKey . self::PARAMS_DIVIDER . $paramValue . self::NEW_LINE_DIVIDER;
         }
 
+        return $result;
+    }
+
+    /**
+     * @param array $tags
+     * @return string
+     */
+    protected function prepareTags(array $tags): string
+    {
+        $result = '';
+
+        if ($tags) {
+            $result = self::TAG_PREFIX . implode(self::DIVIDER . self::TAG_PREFIX, $tags);
+        }
         return $result;
     }
 }
